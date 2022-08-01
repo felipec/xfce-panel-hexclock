@@ -1,0 +1,7 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Name=Hexclock
+Comment=Hexadecimal clock
+Icon=org.xfce.panel.clock
+X-XFCE-Module=hexclock
+X-XFCE-API=2.0
