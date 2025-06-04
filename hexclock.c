@@ -29,7 +29,7 @@ static void class_init(void *g_class, void *data)
 
 static int update(void *data)
 {
-	gchar *string;
+	static gchar string[5];
 	guint ticks, seconds;
 	GDateTime *t;
 
@@ -40,9 +40,8 @@ static int update(void *data)
 	seconds = seconds + g_date_time_get_second(t); // seconds
 	ticks = (seconds * 512) / 675;
 
-	string = g_strdup_printf("%04X", ticks);
+	g_snprintf(string, sizeof(string), "%04X", ticks);
 	gtk_button_set_label(GTK_BUTTON(data), string);
-	g_free(string);
 
 	g_date_time_unref(t);
 
